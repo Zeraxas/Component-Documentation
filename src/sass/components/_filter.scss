@@ -1,0 +1,76 @@
+.filter {
+    display: grid;
+    grid-template-columns: repeat(5, max-content);
+    grid-gap: 2rem;
+    list-style: none;
+
+    @include respond('max', 600) {
+        grid-gap: .3rem;
+        grid-template-columns: repeat(3, max-content);
+        justify-items: start;
+    }
+
+   &__item {
+        &:first-child {
+            width: 100%;
+        } 
+   }
+
+   &__item:first-child > &__btn {
+        
+        @include respond('max', 600) {
+            width: 100%;
+        }  
+   }
+
+    &__btn {
+        font-family: inherit;
+        border: none;
+        background-color: #fff;
+        padding: 1.5rem 3rem;
+        cursor: pointer;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        background-color: #333;
+        color: var(--white);
+        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+        position: relative;
+        z-index: 1;
+
+        
+
+        @include respond('max', 600) {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            
+            
+        }
+        
+        &:focus,
+        &:active {
+            outline: none;
+        }
+
+        &:hover::after {
+            height: 100%;
+        }
+
+        &::after {
+            content: "";
+            height: 0.3rem;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            display: block;
+            background-color: var(--pink);
+            position: absolute;
+            transition: height .2s;
+            z-index: -1;
+        }
+
+        &--active::after {
+            height: 100%;
+        }
+    }
+}

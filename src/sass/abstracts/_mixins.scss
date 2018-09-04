@@ -1,0 +1,48 @@
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin clearfix {
+    &::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+}
+
+@mixin size($width,$height:$width) {
+    width: $width;
+    height: $height;
+}
+
+
+// $type -> min/max -> define min/max-width media query type
+// $breakpoint -> breakpoint in "px", like 900px
+// $resolution -> resolution in dpi like "min-resolution: 192dpi" for retina devices
+// Example -> respond("min", 900, 192dpi);
+@mixin respond($type, $breakpoint, $resolution:"") {
+
+   @if $type == "min" {
+    @if $resolution != "" {
+        // Given breckpoint in "px" converting into "em" via 
+        // deliting value by 16px -> default browser font and multiplication on 1em
+        // 900px will become equals to 56.25em and so on
+        @media (min-resolution: $resolution) and (min-width: ($breakpoint/16) * 1em) {@content};
+    }
+    @if $resolution == "" {
+        @media only screen and (min-width: ($breakpoint/16) * 1em) {@content};
+    }  
+   }
+
+   @if $type == "max" {
+    @if $resolution != "" {
+        @media (min-resolution: $resolution) and (max-width: ($breakpoint/16) * 1em) {@content};
+    }
+    @if $resolution == "" {
+        @media only screen and (max-width: ($breakpoint/16) * 1em) {@content};
+    }  
+   }
+}

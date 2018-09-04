@@ -1,0 +1,196 @@
+.nav {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    position: relative;
+    padding: 1rem;
+    background-color: var(--grey-dark);
+
+    // move navigation on the top of the page
+    @include respond('max', 900) {
+        position: fixed;
+        height: $nav-size / 2;
+        width: 100%;
+        z-index: 10;
+        padding: 0;
+    }
+
+    &__logo {
+        color: var(--white);
+        font-size: 3rem;
+        position: absolute;
+        display: none;
+        top: 1.5rem;
+        left: 2rem;
+
+        @include respond('max', 900) {
+            display: block;
+        }
+    }
+
+    &__num {
+        color: var(--pink)
+    }
+
+    &__container {
+        position: fixed;
+        overflow: hidden;
+        
+        @include respond('max', 900) {
+            position: relative;
+            height: 0;
+            opacity: 0;
+            background-color: var(--grey-dark);
+            padding: 1rem;
+            padding-left: 2rem;
+            margin-top: 7.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, max-content);
+            grid-gap: 2rem;
+            transition: height .4s, opacity .4s;
+        }
+
+        &--active {
+            height: 20rem;
+            opacity: 1;
+            
+        }
+
+    }
+
+    &__topic {
+        list-style: none;
+        color: var(--white, white);
+        display: grid;
+        grid-gap: .5rem;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        @include respond('max', 900) {
+            grid-template-columns: max-content;
+            grid-template-rows: repeat(5, max-content);
+        }
+    }
+
+    &__item {
+        margin-left: 1.2rem;
+        position: relative;
+
+        @include respond('max', 900) {
+            margin-left: 0;
+        }
+
+        &:hover::after {
+            transform: scaleY(1) translateY(0);
+            width: 70%;
+            height: 100%;
+            clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+        }
+
+        &:hover::before {
+            width: 70%;
+            height: 100%;
+            clip-path: polygon(100% 0%, 0 0, 50% 100%, 100% 100%);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            height: .4rem;
+            width: .3rem;
+            background-color: var(--pink);
+            left: 0;
+            bottom: 0;
+            transition: height .2s, width .4s .2s;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 0;
+            width: 0;
+            background-color: var(--pink-dark);
+            top: 0;
+            right: 0;
+            transition: height .2s, width .4s .2s;
+        }
+
+    }
+
+    &__link {
+        position: relative;
+        z-index: 1;
+        padding-left: .6rem;
+        border-left: 3px solid var(--pink);
+        
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: currentColor;
+        }
+
+        
+    }
+
+    &__close {
+        display: none;
+        width: 3rem;
+        height: 3rem;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: absolute;
+        right: 3rem;
+        top: calc(50% - 1.5rem);
+
+        @include respond('max', 900) {
+            display: block;
+        }
+
+        & > span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: .3rem;
+            background-color: var(--white);
+            top: calc(50% - .15rem);
+            transition: opacity .2s;
+        }
+
+        &:hover > span {
+            opacity: 0;
+        }
+
+        &:hover::before {
+            animation: hamburgerRight .4s both;
+        }
+
+        &:hover::after {
+            animation: hamburgerLeft .4s both;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            width: 100%;
+            height: .3rem;
+            background-color: var(--white);
+            position: absolute;
+            transition: transform .3s;
+        }
+
+        &::before {
+            top: 0;
+            left: 0;
+            animation: hamburgetBaseRight .4s;
+        }
+
+        &::after {
+            left: 0;
+            bottom: 0;
+            animation: hamburgetBaseLeft .4s;
+        }
+    }
+}

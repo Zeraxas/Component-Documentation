@@ -1,0 +1,16 @@
+.container {
+    display: grid;
+    grid-template-rows: 60vh 10rem max-content 40vh;
+    grid-template-columns: $nav-size 1fr;
+
+    @include respond('max', 900) {
+        grid-template-rows: 70vh 10rem max-content 30vh;
+        grid-template-columns: 1fr;
+    }
+
+    @include respond('max', 800) {
+        grid-template-rows: 50vh 10rem max-content max-content;
+    }
+
+   
+}

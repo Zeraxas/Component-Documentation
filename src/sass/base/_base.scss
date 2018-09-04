@@ -1,0 +1,47 @@
+// COLORS
+
+:root {
+    --white: #fff;
+    --pink: #eb2f64;
+    --pink-light: #FF3366;
+    --pink-dark: #BA265D;
+    --grey: #ccc;
+    --grey-light:#faf9f9;
+    --grey-dark: #333;
+    --cream: #f5f2f0;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%;
+
+    @include respond("max", 1200) {
+        font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+    }
+
+    @include respond("max", 900) {
+        font-size: 50%; //1rem = 8px, 8/16 = 50%
+    }
+
+    @include respond("min", 1800) {
+        font-size: 75%; //1rem = 12px, 12/16 = 75%
+    }
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--grey-light);
+}
+
+// ::selection {
+//     background-color: $gold;
+//     color: $white;
+// }

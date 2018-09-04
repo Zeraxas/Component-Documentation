@@ -1,0 +1,30 @@
+// Utility variables
+
+$margin-small: 2rem !important;
+$margin-medium: 4rem !important;
+$margin-big: 8rem !important;
+
+$shift: 2rem;
+
+// text align
+.al-c {text-align: center !important;}
+.al-l {text-align: left !important;}
+.al-r {text-align: right !important;}
+
+// position right-top
+.p-rt-s {position: absolute !important; right: $shift !important; top: $shift !important;}
+
+// margin-bottom-small|medium|big
+.mb-s {margin-bottom: $margin-small;}
+.mb-m {margin-bottom: $margin-medium;}
+.mb-b {margin-bottom: $margin-big;}
+
+// margin-top-small|medium|big
+.mt-s {margin-top: $margin-small;}
+.mt-m {margin-top: $margin-medium;}
+.mt-b {margin-top: $margin-big;}
+
+//paddint-top-small|medium|big
+.pt-s {padding-top: $margin-small;}
+.pt-m {padding-top: $margin-medium;}
+.pt-b {padding-top: $margin-big;}

@@ -1,0 +1,54 @@
+.text-reveal {
+    position: relative;
+    display: inline-block;
+    color: var(--white);
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        z-index: 1;
+    }
+
+    &::before {
+        background-color: var(--grey-dark);
+        animation: showText .8s ease;
+    }
+
+    &::after {
+        background-color: var(--white);
+        animation: showText .6s ease .4s;
+    }
+    
+    
+    h1 {
+        opacity: 0;
+        animation: animateText 1s forwards;
+        position: relative;
+    }
+
+}
+
+@keyframes animateText {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes showText {
+    0% {
+        width: 0;
+        left: 0;
+    } 50% {
+        width: 100%;
+        left: 0;
+    } 100% {
+        width: 0;
+        left: 100%;
+    }
+}

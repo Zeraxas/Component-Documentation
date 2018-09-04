@@ -1,0 +1,120 @@
+.main {
+    background-color: var(--grey-light);
+    padding: 10rem 0;
+}
+
+.section-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.how-to-section {
+    background-color: #ECEDEA;
+    display: block;
+    width: 60vw;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    box-shadow: .1rem .5rem 1rem rgba(black, .2);
+    z-index: 1;
+
+    &:not(:last-child) {
+        margin-bottom: 5rem;
+    }
+
+    .description {
+        width: 80%;
+    }
+
+    &--square {
+        &::after {
+            content: "";
+            position: absolute;
+            height: 5rem;
+            width: 5rem;
+            right: 0;
+            bottom: 0rem;
+            background-color: var(--pink-dark);
+            z-index: -1;
+        }
+    }
+
+    &--lines {
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            height: 2rem;
+            width: 5rem;
+            background-color: var(--pink-dark);
+            z-index: -1;
+        }
+
+        &::before {
+            height: 2rem;
+            width: 5rem;
+            top: -2rem;
+            left: 2rem;
+        }
+
+        &::after {
+            height: 5rem;
+            width: 2rem;
+            top: 2rem;
+            left: -2rem;
+        }
+    }
+
+    &--squares {
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+        }
+
+        &::before {
+            height: 5rem;
+            width: 5rem;
+            top: -1.5rem;
+            right: -1.5rem;
+            background-color: var(--pink-dark);
+        }
+
+        &::after {
+            height: 2rem;
+            width: 2rem;
+            top: 0rem;
+            right: 0rem;
+            background-color: var(--pink);
+        }
+    }
+
+    &--skew {
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1rem;
+            background-color: var(--pink-dark);
+            z-index: -1;
+        }
+
+        &::before {
+            height: 3rem;
+            left: 6rem;
+            bottom: -3rem;
+        }
+
+        &::after {
+            height: 2rem;
+            left: 8rem;
+            bottom: -2rem;
+        }
+    }
+
+    @include respond('max', 900) {
+        width: 90%;
+    }
+}

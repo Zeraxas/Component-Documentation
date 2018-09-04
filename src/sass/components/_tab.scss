@@ -1,0 +1,55 @@
+.tab {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(2, max-content);
+    overflow: hidden;
+    overflow-x: auto;
+    
+    &__nav {
+        height: 4rem;
+        display: grid;
+        grid-template-columns: repeat(5, max-content);
+        background-color: #fff;
+    }
+
+    &__link {
+        font-family: $main-font;
+        width: 8rem;
+        background-color: transparent;
+        border: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        outline: none;
+        transition: background-color .2s;
+
+        &:not(:first-child ){
+            border-right: 1px solid var(--grey);
+        }
+
+        &:hover {
+            background-color: var(--grey);
+        }
+
+        &--active {
+            background-color: var(--grey);
+        }
+    }
+
+    &__content {
+        display: none;
+        padding-top: 1rem;
+        overflow: hidden;
+        background-color: var(--cream);
+
+        &--active {
+            display: block;
+        }
+    }
+
+    &__img {
+        display: block;
+    }
+
+
+}

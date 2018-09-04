@@ -1,0 +1,47 @@
+.footer {
+    background-color: var(--grey-dark);
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) $nav-size;
+    justify-items: center;
+    align-items: center;
+
+    padding: 15rem 10rem 10rem 10rem;
+    color: var(--white);
+
+    @include respond('max', 900) {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 8rem;
+        padding-bottom: 0;
+    }
+
+    @include respond('max', 800) {
+        grid-template-columns: 1fr;
+        padding: 12rem 3rem 5rem 3rem;
+
+    }
+
+    .author {
+        @include respond('max', 800) {
+            margin-bottom: 1rem;
+    
+        }
+    }
+
+    .github {
+        width: 10rem;
+        height: 10rem;
+        transition: all .2s;
+        color: var(--white);
+
+        &:hover {
+            color: var(--pink-dark);
+        }
+
+        @include respond('max', 800) {
+            margin-bottom: 1rem;
+    
+        }
+    }
+}
